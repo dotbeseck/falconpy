@@ -36,6 +36,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <https://unlicense.org>
 """
 # pylint: disable=C0302,R0904
+from typing import Dict, Union
 from ._util import force_default, process_service_request, handle_single_argument
 from ._payload import (
     aggregate_payload,
@@ -65,7 +66,7 @@ class FirewallManagement(ServiceClass):
     """
 
     @force_default(defaults=["body"], default_types=["list"])
-    def aggregate_events(self: object, body: list = None, **kwargs) -> dict:
+    def aggregate_events(self: object, body: list = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Aggregate events for customer.
 
         Keyword arguments:
@@ -141,7 +142,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["body"], default_types=["list"])
-    def aggregate_policy_rules(self: object, body: list = None, **kwargs) -> dict:
+    def aggregate_policy_rules(self: object, body: list = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Aggregate rules within a policy for customer.
 
         Keyword arguments:
@@ -217,7 +218,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["body"], default_types=["list"])
-    def aggregate_rule_groups(self: object, body: list = None, **kwargs) -> dict:
+    def aggregate_rule_groups(self: object, body: list = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Aggregate rule groups for customer.
 
         Keyword arguments:
@@ -293,7 +294,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["body"], default_types=["list"])
-    def aggregate_rules(self: object, body: list = None, **kwargs) -> dict:
+    def aggregate_rules(self: object, body: list = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Aggregate rules for customer.
 
         Keyword arguments:
@@ -369,7 +370,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_events(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_events(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get events entities by ID and optionally version.
 
         Keyword arguments:
@@ -395,7 +396,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_firewall_fields(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_firewall_fields(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get the firewall field specifications by ID.
 
         Keyword arguments:
@@ -868,7 +869,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_platforms(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_platforms(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get platforms by ID, e.g., windows or mac or droid.
 
         Keyword arguments:
@@ -894,7 +895,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_policy_containers(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_policy_containers(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get policy container entities by policy ID.
 
         Keyword arguments:
@@ -924,7 +925,7 @@ class FirewallManagement(ServiceClass):
                                    body: dict = None,
                                    cs_username: str = None,  # pylint: disable=W0613  # deprecated
                                    **kwargs
-                                   ) -> dict:
+                                   ) -> Dict[str, Union[int, dict]]:
         """Update an identified policy container.
 
         **DEPRECATED**
@@ -978,7 +979,7 @@ class FirewallManagement(ServiceClass):
                                 body: dict,
                                 cs_username: str = None,  # pylint: disable=W0613  # deprecated
                                 **kwargs
-                                ) -> dict:
+                                ) -> Dict[str, Union[int, dict]]:
         """Update an identified policy container.
 
         Keyword arguments:
@@ -1028,7 +1029,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_rule_groups(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_rule_groups(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get rule group entities by ID.
 
         These groups do not contain their rule entites, just the rule IDs in precedence order.
@@ -1061,7 +1062,7 @@ class FirewallManagement(ServiceClass):
                           cs_username: str = None,  # pylint: disable=W0613  # cs_username is deprecated
                           parameters: dict = None,
                           **kwargs
-                          ) -> dict:
+                          ) -> Dict[str, Union[int, dict]]:
         """Create new rule group on a platform for a customer with a name and description.
 
         Returns the ID.
@@ -1258,7 +1259,7 @@ class FirewallManagement(ServiceClass):
                            cs_username: str = None,  # pylint: disable=W0613  # cs_username is deprecated
                            parameters: dict = None,
                            **kwargs
-                           ) -> dict:
+                           ) -> Dict[str, Union[int, dict]]:
         """Delete rule group entities by ID.
 
         Keyword arguments:
@@ -1289,7 +1290,7 @@ class FirewallManagement(ServiceClass):
                           cs_username: str = None,  # pylint: disable=W0613  # deprecated
                           parameters: dict = None,
                           **kwargs
-                          ) -> dict:
+                          ) -> Dict[str, Union[int, dict]]:
         """Update name, description, or enabled status of a rule group and underlying rules.
 
         Can also create, edit, delete, or reorder rules.
@@ -1349,7 +1350,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["body", "parameters"], default_types=["dict", "dict"])
-    def create_rule_group_validation(self: object, body: dict = None, parameters: dict = None, **kwargs) -> dict:
+    def create_rule_group_validation(self: object, body: dict = None, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Validate the request for creating a new rule group on a platform for a customer with a name and description.
 
         Keyword arguments:
@@ -1456,7 +1457,7 @@ class FirewallManagement(ServiceClass):
                                      cs_username: str = None,  # pylint: disable=W0613  # deprecated
                                      parameters: dict = None,
                                      **kwargs
-                                     ) -> dict:
+                                     ) -> Dict[str, Union[int, dict]]:
         """Validate the request.
 
         Validates the request of updating name, description, or enabled status
@@ -1517,7 +1518,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_rules(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_rules(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get rule entities by ID or Family ID.
 
         ID = 64-bit unsigned int as decimal string
@@ -1546,7 +1547,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["body"], default_types=["dict"])
-    def validate_filepath_pattern(self: object, body: dict = None, **kwargs) -> dict:
+    def validate_filepath_pattern(self: object, body: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Validate that the test pattern matches the executable filepath glob pattern.
 
         Keyword arguments:
@@ -1579,7 +1580,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_events(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_events(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Find all event IDs matching the query with filter.
 
         Keyword arguments:
@@ -1621,7 +1622,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_firewall_fields(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_firewall_fields(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get the firewall field specification IDs for the provided platform.
 
         Keyword arguments:
@@ -1681,7 +1682,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_platforms(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_platforms(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get the list of platform names.
 
         Keyword arguments:
@@ -1707,7 +1708,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_policy_rules(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_policy_rules(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Find all firewall rule IDs matching the query with filter.
 
         Results are returned in precedence order.
@@ -1751,7 +1752,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_rule_groups(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_rule_groups(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Find all rule group IDs matching the query with filter.
 
         Keyword arguments:
@@ -1793,7 +1794,7 @@ class FirewallManagement(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_rules(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_rules(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Find all rule IDs matching the query with filter.
 
         Keyword arguments:

@@ -35,6 +35,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 """
+from typing import Dict, Union
 from ._util import generate_error_result, force_default, args_to_params
 from ._util import process_service_request, handle_single_argument
 from ._payload import generic_payload_list, simple_action_parameter
@@ -56,7 +57,7 @@ class Hosts(ServiceClass):
     """
 
     @force_default(defaults=["parameters", "body"], default_types=["dict"])
-    def perform_action(self: object, body: dict = None, parameters: dict = None, **kwargs) -> dict:
+    def perform_action(self: object, body: dict = None, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Take various actions on the hosts in your environment.
 
         Contain or lift containment on a host. Delete or restore a host.
@@ -173,7 +174,7 @@ class Hosts(ServiceClass):
                            action_name: str,
                            ids: list or str,
                            tags: list or str
-                           ) -> dict:
+                           ) -> Dict[str, Union[int, dict]]:
         """Append or remove one or more Falcon Grouping Tags on one or more hosts.
 
         Keyword arguments:
@@ -234,7 +235,7 @@ class Hosts(ServiceClass):
         return returned
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_device_details_v1(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_device_details_v1(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get details on one or more hosts by providing agent IDs (AID).
 
         You can get a host's agent IDs (AIDs) from query_devices_by_filter,
@@ -263,7 +264,7 @@ class Hosts(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_device_details_v2(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_device_details_v2(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get details on one or more hosts by providing agent IDs (AID).
 
         You can get a host's agent IDs (AIDs) from query_devices_by_filter,
@@ -300,7 +301,7 @@ class Hosts(ServiceClass):
                            body: dict = None,
                            parameters: dict = None,
                            **kwargs
-                           ) -> dict:
+                           ) -> Dict[str, Union[int, dict]]:
         """Get details on one or more hosts by providing agent IDs (AID).
 
         You can get a host's agent IDs (AIDs) from query_devices_by_filter,
@@ -352,7 +353,7 @@ class Hosts(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def get_online_state(self: object, *args, parameters: dict = None, **kwargs) -> dict:
+    def get_online_state(self: object, *args, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Get the online status for one or more hosts by specifying each host’s unique ID.
 
         Successful requests return an HTTP 200 response and the status for each host identified
@@ -383,7 +384,7 @@ class Hosts(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_hidden_devices(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_hidden_devices(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Retrieve hidden hosts that match the provided filter criteria.
 
         Keyword arguments:
@@ -429,7 +430,7 @@ class Hosts(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_devices_by_filter_scroll(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_devices_by_filter_scroll(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Search for hosts in your environment by platform, hostname, IP, and other criteria.
 
         Provides continuous pagination capability (based on offset pointer which expires after
@@ -478,7 +479,7 @@ class Hosts(ServiceClass):
             )
 
     @force_default(defaults=["parameters"], default_types=["dict"])
-    def query_devices_by_filter(self: object, parameters: dict = None, **kwargs) -> dict:
+    def query_devices_by_filter(self: object, parameters: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Search for hosts in your environment by platform, hostname, IP, and other criteria.
 
         Keyword arguments:
@@ -524,7 +525,7 @@ class Hosts(ServiceClass):
             )
 
     @force_default(defaults=["body"], default_types=["dict"])
-    def query_device_login_history(self: object, *args, body: dict = None, **kwargs) -> dict:
+    def query_device_login_history(self: object, *args, body: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Retrieve details about recent login sessions for a set of devices.
 
         Keyword arguments:
@@ -562,7 +563,7 @@ class Hosts(ServiceClass):
             )
 
     @force_default(defaults=["body"], default_types=["dict"])
-    def query_network_address_history(self: object, *args, body: dict = None, **kwargs) -> dict:
+    def query_network_address_history(self: object, *args, body: dict = None, **kwargs) -> Dict[str, Union[int, dict]]:
         """Retrieve history of IP and MAC addresses of devices.
 
         Keyword arguments:
