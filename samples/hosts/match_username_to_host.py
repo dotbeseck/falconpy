@@ -29,6 +29,7 @@ This program requires your:
 With permissions:
     Hosts: Read + Write
 """
+import re
 import argparse
 import csv
 import getpass
@@ -214,7 +215,7 @@ def upload_device_logins(aids: list):
                 for item in range(len(recent_logins)):  # pylint: disable=C0200
                     if "user_name" in recent_logins[item]:
                         if not any(bad_word in recent_logins[item]["user_name"]
-                                   for bad_word in bad_user_names):
+                                   for bad_word in bad_user_names) and not re.match(system_username_regex, recent_logins[item]["user_name"]):
                             # we can find valid user login names!!
                             # print(recent_logins[item]["user_name"])
                             list_of_possible_names.append(
@@ -271,6 +272,7 @@ if __name__ == "__main__":
     # A list of words we want to exclude from the user_name list we retrieve.
     # If a user_name includes one of these names, it will not be tagged
     # Used only when a CSV file is not supplied
+    system_username_regex = r"(_.*)"
     bad_user_names = [
         'Font Driver Host', '\\demo', 'Window Manager\\', 'WORKGROUP\\',
         'NT AUTHORITY\\', '_spotlight@', 'root'
